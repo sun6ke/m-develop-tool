@@ -2,7 +2,7 @@
   "name": "m-develop-tool",
   "version": "1.0.0",
   "description": "a developer tool for mobile",
-  "main": "index.js",
+  "main": "dist/mDevelopTool.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
