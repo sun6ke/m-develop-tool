@@ -1,5 +1,5 @@
 {
-  "name": "mDevelopTool",
+  "name": "m-develop-tool",
   "version": "1.0.0",
   "description": "a developer tool for mobile",
   "main": "index.js",
@@ -25,5 +25,13 @@
     "file-loader": "^4.1.0",
     "less": "^3.9.0",
     "less-loader": "^5.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sun6ke/m-develop-tool.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sun6ke/m-develop-tool/issues"
+  },
+  "homepage": "https://github.com/sun6ke/m-develop-tool#readme"
 }
