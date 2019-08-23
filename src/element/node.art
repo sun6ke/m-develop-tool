@@ -1,0 +1,7 @@
+<span class="mt-el-node">&lt;{{tagName.toLowerCase()}} <span class="node-attribute">
+{{each attributes val key}}
+	{{if val.value !== ''}}
+		{{val.name}}="<span class="node-attribute-val">{{val.value}}</span>"
+	{{else}}
+		{{val.name}}
+	{{/if}}{{/each}}</span>&gt;</span>

@@ -1,0 +1,9 @@
+<div class="inner-content log-content {{active ? 'active' : ''}}">
+	<div class="mt-log"></div>
+	<form class="log-cmd">
+		<div class="cmd-input-wrap">
+		  <input id="cmd_input" class="cmd-input" placeholder="command..." />
+		  <button type='submit'>ok</button>
+		</div>
+	</form>
+</div>

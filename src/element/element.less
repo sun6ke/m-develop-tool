@@ -1,0 +1,54 @@
+.mt-element {
+  .mt-el-parent {
+    position: relative;
+    padding-left: 11px;
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 4px;
+      left: 2px;
+      width: 0;
+      height: 0;
+      border: transparent solid 4px;
+      border-left-color: #000;
+      transition: transform .1s
+    }
+
+    &.mt-toggle:before {
+      transform: rotate(90deg);
+      top: 5px;
+    }
+
+    .is-leaf {
+      padding-left: 11px;
+    }
+
+    .leaf-node {
+      padding-left: 11px;
+      white-space: pre-wrap;
+    }
+  }
+
+  .mt-el-parent .mt-el-parent,
+  .mt-el-parent .leaf-node,
+  .mt-el-parent .is-leaf {
+    display: none;
+  }
+  .mt-el-parent.mt-toggle > .mt-el-parent,
+  .mt-el-parent.mt-toggle > .leaf-node,
+  .mt-el-parent.mt-toggle > .is-leaf {
+    display: block;
+  }
+
+
+  .mt-el-node {
+    color: #9142b4;
+    .node-attribute {
+      color: #a45635;
+    }
+    .node-attribute-val {
+      color: #3655c8;
+    }
+  }
+}

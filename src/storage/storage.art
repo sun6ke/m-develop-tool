@@ -1,0 +1,17 @@
+<div class="inner-content storage-content {{active ? 'active' : ''}}">
+	<div class="mt-storage">
+		<div class="sub-tabs">
+			<div class="sub-tab {{type=='local'?'active':''}}" id="local">localStorage</div>
+			<div class="sub-tab {{type=='session'?'active':''}}" id="session">sessionStorage</div>
+		</div>
+		<table class="mt-all-storages" cellpadding="0" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<td width="45%">key</td>
+					<td width="45%">value</td>
+					<td width="10%"></td>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>

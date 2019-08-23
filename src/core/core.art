@@ -1,0 +1,17 @@
+<div id="mt-main" class="">
+    <div class="mt-overlay"></div>
+    <div class="mt-panel">
+        <div class="mt-navbar">
+            <div class="mt-tabs">
+		        {{each pluginList val key}}
+		            <div class="mt-tab {{val.active ? 'active' : ''}}" id="mt-tab-{{val.name}}">{{val.name}}</div>
+		        {{/each}}
+            </div>
+            <i class="clear" id="clear">+</i>
+        </div>
+        <div class="mt-topbar">
+        </div>
+        <div class="mt-content">
+        </div>
+    </div>
+</div>

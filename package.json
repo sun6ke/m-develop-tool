@@ -1,0 +1,29 @@
+{
+  "name": "mDevelopTool",
+  "version": "1.0.0",
+  "description": "a developer tool for mobile",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-dev-server --open --inline --progress --hot"
+  },
+  "author": "sunke",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-stage-0": "^7.0.0",
+    "art-template-loader": "^1.4.3",
+    "babel-loader": "^8.0.6",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.36.1",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "file-loader": "^4.1.0",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0"
+  }
+}

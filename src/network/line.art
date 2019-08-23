@@ -1,0 +1,56 @@
+<div class="mt-network-info {{error?'error':''}}">
+	<div class="mt-row">
+        <div class="mt-col mt-col-2">{{name}}</div>
+        <div class="mt-col">{{status}}</div>
+        <div class="mt-col">{{method}}</div>
+        <div class="mt-col">{{duration}}</div>
+    </div>
+    <div class="mt-network-detail mt-hide">
+        <div class="detail-block">
+            <div class="detail-header">General</div>
+            <div class="">Request URL: {{url}}</div>
+            <div class="">Request Method: {{method}}</div>
+        </div>
+
+        {{if header&&header.length}}
+            <div class="detail-block">
+                <div class="detail-header">Response Headers</div>
+                {{each header item}}
+                    <div class="">{{item.key}}: {{item.value}}</div>
+                {{/each}}
+            </div>
+        {{/if}}
+
+        {{if params&&$imports.Object.keys(params).length}}
+	        <div class="detail-block">
+	            <div class="detail-header">Query String Parameters</div>
+	            {{each params key value}}
+	                <div class="">{{key}}: {{value}}</div>
+	            {{/each}}
+	        </div>
+        {{/if}}
+
+		{{if postParams}}
+	        <div class="detail-block">
+	            {{if requestType == 'json'}}
+	                <div class="detail-header">Request Payload</div>
+	                <div class="pre-wrap">{{postParams}}</pre>
+	            {{else if $imports.Object.keys(postParams).length}}
+	                <div class="detail-header">Form Data</div>
+	                {{each postParams key value}}
+	                    <div class="">{{key}}: {{value}}</div>
+	                {{/each}}
+	            {{/if}}
+	        </div>
+        {{/if}}
+
+
+        {{if response}}
+        <div class="detail-block">
+            <div class="detail-header">Request</div>
+            <div class="pre-wrap">{{response}}</pre>
+        </div>
+        {{/if}}
+
+    </div>
+</div>

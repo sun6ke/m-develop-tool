@@ -1,0 +1,13 @@
+<div class="inner-content network-content {{active ? 'active' : ''}}">
+	<div class="mt-network mt-table">
+		<div class="mt-row-title mt-row">
+			<div class="mt-col mt-col-2">Name</div>
+			<div class="mt-col">Status</div>
+			<div class="mt-col">Method</div>
+			<div class="mt-col">Time</div>
+		</div>
+		<div class="mt-network-content">
+
+		</div>
+	</div>
+</div>

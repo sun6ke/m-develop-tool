@@ -1,0 +1,13 @@
+<table>
+	{{each storages val key}}
+		<tr>
+			<td class="{{val.key == null ? 'item-enabled-click' : ''}}" data-key="{{key}}">{{val.key}}</td>
+			<td class="item-enabled-click storage-value" data-key="{{key}}">{{val.value}}</td>
+			<td>
+				{{if val.key !== null}}
+					<div class="delete-storage clear" data-key="{{key}}">+</div>
+				{{/if}}
+			</td>
+		</tr>
+	{{/each}}
+</table>

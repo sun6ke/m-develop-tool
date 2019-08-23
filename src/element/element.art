@@ -1,0 +1,5 @@
+<div class="inner-content element-content {{active ? 'active' : ''}}">
+	<div class="mt-element">
+
+	</div>
+</div>

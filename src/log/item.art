@@ -1,0 +1,9 @@
+<div class="mt-log-item log-type-{{type}}">
+	{{if code}}
+		<pre>{{logs}}</pre>
+	{{else}}
+        {{each logs val key}}
+            <span>{{val}}</span>
+        {{/each}}
+    {{/if}}
+</div>

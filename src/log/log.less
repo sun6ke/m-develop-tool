@@ -1,0 +1,72 @@
+.log-cmd {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  .cmd-input-wrap {
+    display: flex;
+    input {
+      width: 85%;
+      height: 2rem;
+    }
+
+    button {
+      width: 15%;
+      padding: 0;
+      background-color: #00a8f0;
+      border: 0;
+      color: #fff;
+    }
+  }
+}
+
+.mt-log {
+  .mt-log-item {
+    margin: 0;
+    padding: 0.46153846em 0.61538462em;
+    overflow: hidden;
+    line-height: 1.3;
+    border-bottom: 1px solid #EEE;
+    word-break: break-word;
+    font-size: .9rem;
+
+    &.log-type-info {
+      color: #00a8f0;
+    }
+    &.log-type-warn {
+      color: #ff9914;
+    }
+    &.log-type-error {
+      color: red;
+    }
+
+    &.log-type-input {
+      position: relative;
+      padding-left: 1rem;
+      &:before {
+        content: "›";
+        position: absolute;
+        top: 0.1rem;
+        left: 0.4rem;
+        color: #00a8f0;
+        font-size: 1.3rem;
+      }
+    }
+    &.log-type-output {
+      position: relative;
+      padding-left: 1rem;
+      &:before {
+        content: "‹";
+        position: absolute;
+        top: 0.1rem;
+        left: 0.4rem;
+        color: #00a8f0;
+        font-size: 1.3rem;
+      }
+    }
+    pre {
+      margin: 0;
+    }
+  }
+
+}

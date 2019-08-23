@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div id="aaa" class="main">
+        sdasdasd
+    </div>
+    <button id="create">
+        new
+    </button>
+</div>
+</body>
+<script>
+    function load (options) {
+        var xhr = new XMLHttpRequest();
+        xhr.timeout = options.timeout;
+        xhr.responseType = options.dataType;
+        xhr.open(options.method, options.url, true);
+        //注册相关事件回调处理函数
+        xhr.onload = function () {
+            if (xhr.readyState == 4) {
+                options.success.call(this, xhr.response);
+            }
+        };
+        xhr.ontimeout = function (e) {
+            options.ontimeout.call(e);
+        };
+        xhr.onerror = function (e) {
+            options.error.call(e);
+        };
+        if (options.data) {
+            xhr.send(JSON.stringify(options.data));
+        } else {
+            xhr.send();
+        }
+    }
+    function onDeviceReady () {
+        load({
+            method: 'GET',
+            url: 'http://tmoses.mgm-iot.com/pc/chcp.json?a=1&b=2',
+            dataType: 'json',
+            data: {
+                "func": "get_verify",
+                "data": {
+                    "version": "moses"
+                }
+            },
+            timeout: 30000,
+            success: function (res) {
+                console.log('success')
+            },
+            error: function () {
+                console.log('error')
+            },
+            ontimeout: function () {
+                console.log('timeout')
+            }
+        })
+    }
+
+    document.getElementById('aaa').addEventListener('click', function() {
+        onDeviceReady()
+    })
+    document.getElementById('create').addEventListener('click', function() {
+        new mDevelopTool({})
+    })
+</script>
+</body>
+</html>
