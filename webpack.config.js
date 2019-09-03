@@ -1,9 +1,10 @@
 'use strict'
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     devtool: false,
     /* 入口 */
     entry: {
@@ -54,7 +55,14 @@ module.exports = {
             filename: 'index.html',
             template: 'index.html',
             inject: true
-        })
+        }),
+
+        new CopyWebpackPlugin([
+            {
+                from: path.resolve(__dirname, './src/mDevelopTool.d.ts'),
+                to: path.resolve(__dirname, './dist/mDevelopTool.min.d.ts')
+            }
+        ])
     ]
 
 }

@@ -246,9 +246,12 @@ class elementPlugin extends basePlugin {
     /**
      *  ========== event =========
      */
-    removeEvent() {
-
+    destroy() {
+        this.observer.disconnect();
+        this.complete = false
+        this.$element_content.remove()
     }
+
     activeEvent(id, data) {
         super.activeEvent(id, data)
 

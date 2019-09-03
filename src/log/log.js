@@ -78,9 +78,8 @@ class logTabPlugin extends basePlugin {
             return false
         }
         this._printLog({
-            logs: result,
-            type: 'output',
-            code: true
+            logs: result+'',
+            type: 'output'
         })
     }
 
@@ -98,6 +97,16 @@ class logTabPlugin extends basePlugin {
         $.remove($.one('.mt-log'))
     }
 
+    destroy() {
+        const methodList = ['log', 'info', 'warn', 'error'];
+        methodList.map(method => {
+            window.console[method] = this.console[method]
+        })
+
+        this.console = {};
+
+        this.$log_content.remove()
+    }
     render(callback) {
         callback(this.$log_content)
     }

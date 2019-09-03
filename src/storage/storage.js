@@ -124,10 +124,10 @@ class storagePlugin extends basePlugin {
     _removeItem(key) {
         switch (this.type) {
             case 'local':
-                window.localStorage._removeItem(key)
+                window.localStorage.removeItem(key)
                 break;
             case 'session':
-                window.sessionStorage._removeItem(key)
+                window.sessionStorage.removeItem(key)
                 break;
         }
     }
@@ -155,6 +155,12 @@ class storagePlugin extends basePlugin {
         }
 
         this.refresh()
+    }
+    destroy() {
+        this.type = 'local'
+        this.storages = []
+        this.complete = false
+        this.$storage_content.remove()
     }
 
     /**

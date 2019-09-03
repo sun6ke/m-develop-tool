@@ -3,7 +3,7 @@
 		<pre>{{logs}}</pre>
 	{{else}}
         {{each logs val key}}
-            <span>{{val}}</span>
+            <span>{{val.toString()}}</span>
         {{/each}}
     {{/if}}
 </div>

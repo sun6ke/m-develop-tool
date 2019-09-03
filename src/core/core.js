@@ -109,6 +109,20 @@ export default class mDevelopTool {
             }
             this.pluginList[this.currentTab].clear.call(this.pluginList[this.currentTab])
         })
+
+        $.bind($.one('.mt-overlay', this.$main), 'click', (e) => {
+            if (e.target != $.one('.mt-overlay')) {
+                return false;
+            }
+            this.hide();
+        });
+    }
+
+    _removePlugin(pluginId) {
+        if (this.pluginList[pluginId].remove) {
+            this.pluginList[pluginId].remove()
+        }
+        delete this.pluginList[pluginId]
     }
 
 
@@ -120,6 +134,24 @@ export default class mDevelopTool {
     }
 
     destroy() {
+        for (let key in this.pluginList) {
+            this._removePlugin(key)
+        }
+        this.$main.remove()
+    }
 
+    show() {
+        $.one('.mt-panel', this.$main).style.display = 'block';
+        $.one('.mt-overlay', this.$main).style.display = 'block';
+        setTimeout(() => {
+            $.addClass($.one('#mt-main', this.$main), 'mt-toggle')
+        }, 10)
+    }
+    hide() {
+        $.removeClass($.one('#mt-main', this.$main), 'mt-toggle')
+        setTimeout(() => {
+            $.one('.mt-panel', this.$main).style.display = 'none';
+            $.one('.mt-overlay', this.$main).style.display = 'none';
+        }, 300)
     }
 }

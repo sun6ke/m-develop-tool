@@ -185,6 +185,11 @@ class networkPlugin extends basePlugin {
     render(callback) {
         callback(this.$network_content)
     }
+    destroy() {
+        this.ajax_list = {}
+        this.complete = false
+        this.$network_content.remove()
+    }
     /**
      *  ========== event =========
      */
