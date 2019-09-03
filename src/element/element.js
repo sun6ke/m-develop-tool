@@ -165,9 +165,6 @@ class elementPlugin extends basePlugin {
     _removeElement(mutation) {
         let $target = mutation.target
         let nodeInDom = $target.temp_nodes
-        if (!nodeInDom.$el) {
-            return false
-        }
 
         for (let i = 0; i < mutation.removedNodes.length; i++) {
             let removed = mutation.removedNodes[i]
@@ -185,9 +182,6 @@ class elementPlugin extends basePlugin {
     _addElement(mutation) {
         let $target = mutation.target
         let nodeInDom = $target.temp_nodes
-        if (!nodeInDom.$el) {
-            return false
-        }
 
         this._getNode($target);
         for (let i = 0; i < mutation.addedNodes.length; i++) {
@@ -201,12 +195,12 @@ class elementPlugin extends basePlugin {
             if (mutation.nextSibling !== null) {
                 //has nextSibling
                 let sibling = mutation.nextSibling.temp_nodes
-                if (sibling.$el) {
+                if (!sibling || !sibling.$el) {
                     continue
                 }
                 this._renderNode(node, sibling.$el, 'insertBefore');
             } else {
-                if (!nodeInDom.$el) {
+                if (!nodeInDom || !nodeInDom.$el) {
                     continue
                 }
                 if (nodeInDom.$el.lastChild) {
